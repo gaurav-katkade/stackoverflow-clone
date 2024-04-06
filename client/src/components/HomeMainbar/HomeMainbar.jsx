@@ -1,40 +1,71 @@
 import React from 'react'
-import {Link,useLocation} from 'react-router-dom'
+import {Link,useLocation, useNavigate} from 'react-router-dom'
 import './HomeMainbar.css';
 import Questions from '../../Pages/Questions/Questions';
 import QuestionList from './QuestionList';
 
 const HomeMainbar = () => {
+  const user = 1;
+  const navigate = useNavigate();
+  const checkAuth=()=>{
+    if(user === null){
+      alert('Sign in first to ask Questions')
+      navigate('/Auth')
+    }else{
+      navigate('/AskQuestion')
+    }
+  }
   const questionsList = [
     {
       id: 1,
-      votes: 3,
+      upVotes:2,
+      downVotes:3,
       noOfAnswers: 2,
       questionTitle: "What is a function?",
       questionBody: "It meant to be",
       questionTags: ["java", "node js", "react js", "mongo"],
       userPosted: "user1",
-      askedOn: "jan 1"
+      userId:1,
+      askedOn: "jan 1",
+      answer:[{
+        answerBody:"Answer",
+        userAnswered:'Kumar',
+        userId:2,
+      }]
     },
     {
       id: 2,
-      votes: 5,
+      upVotes:2,
+      downVotes:3,
       noOfAnswers: 4,
       questionTitle: "What is a function?",
       questionBody: "It meant to be",
       questionTags: ["javascript", "R", "python"],
       userPosted: "mano",
-      askedOn: "jan 1"
+      userId:1,
+      askedOn: "jan 1",
+      answer:[{
+        answerBody:"Answer",
+        userAnswered:'Kumar',
+        userId:2,
+      }]
     },
     {
       id: 3,
-      votes: 1,
+      upVotes:2,
+      downVotes:3,
       noOfAnswers: 2,
       questionTitle: "what is a function?",
       questionBody: "It meant to be",
       questionTags: ["javascript", "python"],
       userPosted: "no",
-      askedOn: "jan 1"
+      userId:1,
+      askedOn: "jan 1",
+      answer:[{
+        answerBody:"Answer",
+        userAnswered:'Kumar',
+        userId:2,
+      }]
     }
   ];
   const location = useLocation()
@@ -44,7 +75,7 @@ const HomeMainbar = () => {
         {
           location.pathname ==='/'?<h1>Top Questions</h1>:<h1>All Question</h1>
         }
-        <Link  className='ask-btn' to='/AskQuestions'>Ask Question</Link>
+        <button onClick={checkAuth} className='ask-btn'>Ask Question</button>
       </div>
       <div className=''>
         {
