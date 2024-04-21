@@ -46,7 +46,7 @@ const Navbar = () => {
             {User ===null?
                 <Link to="/Auth" className='nav-item nav-links'>Log in</Link> :
                 <>
-                    <Link to={`/User/${User?.result?._id}`}><Avatar backgroundColor="#009dff" px="10px" py="6px" borderRadius="50%" color="white"> {User.result.name.charAt(0).toUpperCase()}</Avatar></Link>
+                    <Link to={`/Users/${User?.result?._id}`}><Avatar backgroundColor="#009dff" px="10px" py="6px" borderRadius="50%" color="white"> {User.result.name.charAt(0).toUpperCase()}</Avatar></Link>
                     <button className='nav-item nav-links' onClick={handleLogout}>Log out</button>
                 </>        
             }

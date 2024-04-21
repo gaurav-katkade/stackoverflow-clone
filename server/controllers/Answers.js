@@ -2,7 +2,7 @@ import mongoose  from "mongoose";
 import Questions from "../models/Questions.js";
 
 export const postAnswer=async(req,res)=>{
-    console.log('we are reaching the post ans controller')
+    // console.log('we are reaching the post ans controller')
     const {id:_id} = req.params;
     const {noOfAnswers,answerBody,userAnswered,userId}= req.body;
     if(!mongoose.Types.ObjectId.isValid(_id)){

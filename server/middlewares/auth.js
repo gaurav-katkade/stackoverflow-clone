@@ -5,7 +5,7 @@ const auth = (req,res,next)=>{
         const token = req.headers['authorization'].split(" ")[1];
         // console.log("🚀 ~ auth ~ token:", token)
         
-        let decodeData = jwt.verify(token,'test')
+        let decodeData = jwt.verify(token,process.env.JWT_SECRET)
         // console.log("🚀 ~ auth ~ decodeData:", decodeData)
         req.userId = decodeData?.id
         next()

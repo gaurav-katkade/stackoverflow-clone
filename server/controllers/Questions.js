@@ -22,7 +22,7 @@ export const getAllQuestions = async (req,res)=>{
 }
 
 export const deleteQuestion = async(req,res)=>{
-    console.log("reached deleteQuestion")
+    // console.log("reached deleteQuestion")
     const {id:_id} = req.params;
     if(!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('question unavailable')
