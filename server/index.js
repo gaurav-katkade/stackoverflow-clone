@@ -11,7 +11,7 @@ const app = express()
 dotenv.config();
 app.use(express.json({limit:"30mb",extended:true}))
 app.use(express.urlencoded({limit:"30mb",extended:true}))
-app.use(cors())
+app.use(cors({orgin:"https://stackoverflow-clone-8yiq.vercel.app/"}))
 app.use('/user',userRouter)
 app.use('/questions',questionRoutes)
 app.use('/answer',answerRoutes)
