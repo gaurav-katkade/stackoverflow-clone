@@ -26,3 +26,7 @@ export const voteQuestion=(id,value,userId)=>API.patch(`/questions/vote/${id}`,{
 export const fetchAllUsers = ()=>API.get('/user/getAllUsers')
 
 export const  updateProfile =(id,updateData)=>API.patch(`/user/update/${id}`,updateData)
+
+export const forgotPassword =(email,mobile_no)=>API.post('/user/forgot-password',{email,mobile_no})
+
+export const resetPassword =(email,user_otp,new_password)=>API.post('/user/reset-password',{email,user_otp,new_password});

@@ -22,3 +22,22 @@ export const login= (authData,navigate)=>async (dispatch)=>{
         console.log(error)
     }
 }
+
+export const  forgotPassword =(data,navigate)=>async(dispatch)=>{
+    try {
+        const {email,mobile_no} = data;
+        const {data} = await api.forgotPassword(email,mobile_no)
+        navigate('/reset-password');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const  resetPassword =(data)=>async(dispatch)=>{
+    try {
+        const {email,user_otp,new_password} = data;
+        const {data} = await api.resetPassword(email,user_otp,new_password)
+    } catch (error) {
+        console.log(error);
+    }
+}
